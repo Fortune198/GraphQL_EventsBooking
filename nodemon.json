@@ -1,0 +1,8 @@
+{
+    "env": {
+        "PORT": 3000,
+        "MONGO_USER": "fortunematshika",
+        "MONGO_PASSWORD": "uZFkiQ3CfOTC89cy",
+        "MONGO_DB": "graphql-cluster"
+    }
+}

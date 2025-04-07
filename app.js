@@ -7,11 +7,15 @@ const { graphql } = require('graphql');
 
 const graphqlSchema = require('./graphql/schema/index');
 const graphqlResolvers = require('./graphql/resolvers/index');
+const isAuth = require('./middleware/is-auth');
+
 //we parser express our app
 const app = express();
 
 
 app.use(bodyParser.json());
+
+app.use(isAuth);
 
 
 //rootValue is a resolver 
@@ -21,7 +25,7 @@ app.use(bodyParser.json());
 app.use('/graphql', graphqlHTTP({
     schema: graphqlSchema,
     rootValue: graphqlResolvers,
-    //allows us to use graphiql website
+    //allows us to use graphiql website/editor
     graphiql: true
 })
 );
